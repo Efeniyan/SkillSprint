@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-
+import Header from '@/components/Header.vue';
 
 const RecapView = ref(false);
 const score = ref(15); // Déclaration de score
@@ -57,7 +57,7 @@ onMounted(() => {
   <!-- Déconnection -->
 
   <div class="ntb">
-    <router-link to="/"><button class="deconnecte">Deconection</button></router-link>
+    <Header></Header>
   </div>
 
 
@@ -76,7 +76,7 @@ onMounted(() => {
       <section class="cta">
         <h2 id="animation-h2">Prêt à commencer?</h2>
         <div class="aligne">
-          <button class="btn" id="start-button" style="display: none;"><router-link
+          <button class="btn" id="start-button" ><router-link
               to="/sprint">Start</router-link></button>
         </div>
       </section>
@@ -149,6 +149,11 @@ body {
   opacity: 0;
   transition: opacity 0.5s ease;
 }
+a{
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
 
 
 
@@ -169,7 +174,7 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-image: url('../assets/b2.avif');
+  background-image: url('../assets/Work.gif');
    /* background-color: #87CEFA;  */
   background-size: cover;
   background-position: center;
@@ -225,20 +230,6 @@ p {
   font-size: 1.2em;
 }
 
-.btn {
-  display: inline-block;
-  padding: 10px 10px;
-  background-color: rgb(128, 117, 117);
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  width: 70%;
-  max-width: 300px;
-  text-align: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
 
 .aligne {
   /* text-align: center;  */
@@ -248,14 +239,14 @@ p {
 
 
 
-.ntb {
+/* .ntb {
   position: fixed;
   top: 20px;
   right: 20px;
   z-index: 1000;
-}
+} */
 
-.deconnecte {
+/* .deconnecte {
   background-color: #ff4d4d;
   color: white;
   border: none;
@@ -264,6 +255,21 @@ p {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+} */
+
+.btn {
+  display: inline-block;
+  padding: 10px 10px;
+  background-color: rgb(48, 212, 76);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  width: 70%;
+  max-width: 300px;
+  text-align: center;
+  margin-right: 60px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .deconnecte:hover {

@@ -9,6 +9,7 @@
         <div class="progress-bar">
             <div class="progress" :style="{ width: progress + '%' }"></div>
         </div>
+        <img src="../assets/Intercom Live Chat.gif" alt="">
         
         <div class="Rcp">
             <div class="recap" v-if="RecapView">
@@ -16,7 +17,7 @@
                     <h2>Récapitulatif de votre frappe</h2>
                     <div id="stars">
                         <span v-for="i in 5" :class="{ star: coleur }"><svg
-                                :fill="(starCompleted !== null && starCompleted >= i) ? 'yellow' : '#000000'" width="50px"
+                                :fill=" (starCompleted !== null && starCompleted >= i ) ? 'yellow' : '#000000'" width="50px"
                                 height="50px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg">
                                 <g opacity="0.2">
                                     <path
@@ -47,10 +48,13 @@
                         <p class="dure">Précision</p>
                     </div>
                 </div>
-        
-                <div class="btnR">
-                    <button @click="refreshPage"><img src="../assets/repeate.svg" alt=""></button>
+                <div class="chuim">
+                    <div>
+                        <p>Score: <strong> {{ score }} </strong></p>
+                    </div>
                 </div>
+        
+                
             </div>
         </div>
     </div>
@@ -78,7 +82,7 @@ const wordnumber = ref(null);
 let RecapView = ref(false);
 let recapTriggered = ref(false);
 let coleur = ref(false);
-let starCompleted = 0;
+let starCompleted = ref(0);
 let lastKey = ref('');
 let phrase = ref([]);
 let newPhrase = ref([]);
@@ -122,25 +126,30 @@ function stopTimer() {
 
 function toggleRecap() {
     RecapView.value = !RecapView.value;
-    updateScore(score.value); // Appel de fonction corrigé
+    updateScore(newScore); // Appel de fonction corrigé
 }
 
 function updateScore(newScore) {
-    score.value = newScore;
+     newScore = score.value;
     updateStars(newScore); // Appel de fonction corrigé
 }
 
 function updateStars(score) {
     if (score >= 1000) {
         starCompleted.value = 5;
-    } else if (score >= 800) {
+        coleur.value = true;
+    } else if (score >= 900) {
         starCompleted.value = 4;
-    } else if (score >= 700) {
+        star.classList.add('yellow');
+    } else if (score >= 800) {
         starCompleted.value = 3;
-    } else if (score >= 500) {
+        star.classList.add('yellow');
+    } else if (score >= 700) {
         starCompleted.value = 2;
-    } else if (score >= 200) {
+        star.classList.add('yellow');
+    } else if (score >= 500) {
         starCompleted.value = 1;
+        star.classList.add('yellow');
     } else {
         starCompleted.value = 0; // Valeur par défaut
     }
@@ -340,16 +349,20 @@ onMounted(() => {
 </script>
 
 <style scoped>
+
+img{
+    margin: 0 28% ;
+}
 .typing-club {
     font-family: 'Arial', sans-serif;
     text-align: center;
-    background-color: #b7beba;
+    background-color: #E0F7FA;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s;
 
-    margin: 10% 20% 1%;
+    margin: 8% 20% 1%;
 }
 
 .typing-club:hover {
@@ -382,7 +395,6 @@ onMounted(() => {
     border-radius: 5px;
     overflow: hidden;
     height: 20px;
-    margin-top: 20px;
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
     margin: 0 20%;
 }
@@ -393,10 +405,18 @@ onMounted(() => {
     transition: width 0.3s ease-in-out;
 }
 
+#myview{
+    height: 700px;
+}
+
 /*************************************  Css REcapView **********************************************/
 
 .star {
     font-size: 24px;
+}
+
+.chuim{
+    font-size: 25px;
 }
 
 .star.yellow img {

@@ -95,7 +95,7 @@ function chooseLevel(word) {
     <span><img src="../assets/svg/skillSprinttt.jpg" alt="LOGO" class="logo"></span>
     <ul>
       <li>
-        <RouterLink to="/">
+        <RouterLink to="/home">
           <img src="../assets/svg/home_24dp_75FB4C_FILL0_wght400_GRAD0_opsz24.svg" alt="Home" />
         </RouterLink>
       </li>
@@ -107,6 +107,9 @@ function chooseLevel(word) {
       </li>
       <li @click="showSetting">
           <img src="../assets/svg/settings_24dp_75FB4C_FILL0_wght400_GRAD0_opsz24.svg" alt="Setting" />
+      </li>
+      <li >
+        <router-link to="/" ><button class="deconnecte">Déconnexion</button></router-link>
       </li>
     </ul>
   </nav>
@@ -154,6 +157,20 @@ ul {
 li {
   list-style-type: none;
 }
+
+
+
+.deconnecte {
+  background-color: #f30e0e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 
 img {
   width: 60px; 

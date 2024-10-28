@@ -7,6 +7,8 @@ import Sign from '@/views/Sign.vue'
 import SkillSprint from '@/views/SkillSprint.vue'
 import Principale from '@/views/Principale.vue'
 import Setting from '@/views/Setting.vue'
+import Acceuil from '@/views/Acceuil.vue'
+import Scolaire from "@/views/Scolaire.vue"
 
 let isAuthenticated = false; 
 const routes = [
@@ -14,6 +16,11 @@ const routes = [
     path: '/',
     name: 'principale',
     component: Principale
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
   },
   {
     path: '/sign',
@@ -45,6 +52,16 @@ const routes = [
     path: '/setting',
     name: 'setting',
     component: Setting
+  },
+  {
+    path: '/acceuil',
+    name: 'acceuil',
+    component: Acceuil
+  },
+  {
+    path: '/scolaire',
+    name: 'scolaire',
+    component: Scolaire
   }
 ];
 const router = createRouter({

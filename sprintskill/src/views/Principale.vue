@@ -1,16 +1,16 @@
 <script setup>
-import Login from './Login.vue';
+import acceuil from './Acceuil.vue';
 import Charger from './Charger.vue';
 import { onMounted } from 'vue';
 
 function affichage() {
-    const elem = document.querySelectorAll(".login");
+    const elem = document.querySelectorAll(".acceuil");
     elem[1].style.display = "none"
     setTimeout(() =>{
     elem[0].style.display = "none"
     elem[1].style.display = "block"
 
-},1000)
+},5000)
     
 }
 
@@ -21,11 +21,11 @@ onMounted(() => {
 
 
 <template>
-<div class="login">
+<div class="acceuil">
     <Charger></Charger>
 </div>
-<div class="login">
-    <Login></Login>
+<div class="acceuil">
+    <acceuil></acceuil>
 </div>
 
 
